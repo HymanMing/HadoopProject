@@ -8,7 +8,7 @@ import org.apache.hadoop.io.IOUtils;
 
 public class HdfsUrlTest {
 
-	// 注册  让Java程序识别hdfs URL形式
+	// 注册  让Java程序识别HDFS URL形式
 	static {
 		URL.setURLStreamHandlerFactory(new FsUrlStreamHandlerFactory());
 	}
