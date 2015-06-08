@@ -56,7 +56,7 @@ public class WordCountMapReduce {
 	public static void main(String[] args) throws Exception {
 		args = new String[]{
 				"hdfs://10.1.16.251:8020/user/hyman/mr/input",
-				"hdfs://10.1.16.251:8020/user/hyman/mr/output1"
+				"hdfs://10.1.16.251:8020/user/hyman/mr/output0"
 		};
 		Configuration conf = new Configuration();
 
