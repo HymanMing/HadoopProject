@@ -1,4 +1,4 @@
-package cn.hduhadoop.hadoop.mapreduce.topk;
+package cn.hduhadoop.hadoop.mapreduce.app.topk;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
