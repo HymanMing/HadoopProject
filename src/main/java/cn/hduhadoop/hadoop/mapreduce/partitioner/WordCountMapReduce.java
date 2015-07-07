@@ -1,4 +1,4 @@
-package cn.hduhadoop.hadoop.mapreduce;
+package cn.hduhadoop.hadoop.mapreduce.partitioner;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
@@ -109,7 +109,7 @@ public class WordCountMapReduce extends Configured implements Tool {
 		job.setMapOutputValueClass(LongWritable.class);
 		
 		//	4) set shuffle
-		//job.setPartitionerClass(HashPartitioner.class);
+		job.setPartitionerClass(WCPartitioner.class);
 		//job.setSortComparatorClass(LongWritable.Comparator.class);
 		//job.setCombinerClass(ModuleReducer.class);
 		//job.setGroupingComparatorClass(LongWritable.Comparator.class);
@@ -118,6 +118,7 @@ public class WordCountMapReduce extends Configured implements Tool {
 		job.setReducerClass(WordCountReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(LongWritable.class);
+		job.setNumReduceTasks(4);
 		
 		//	6) set output
 		job.setOutputFormatClass(TextOutputFormat.class);
@@ -130,8 +131,8 @@ public class WordCountMapReduce extends Configured implements Tool {
 
 	public static void main(String[] args) throws Exception {
 		args = new String[]{
-			"hdfs://10.1.16.251:8020/user/hyman/mr/wc/input",
-			"hdfs://10.1.16.251:8020/user/hyman/mr/wc/output"
+			"hdfs://10.1.16.251:8020/user/hyman/mr/partitioner/input",
+			"hdfs://10.1.16.251:8020/user/hyman/mr/partitioner/output"
 		};
 		
 		// run job
