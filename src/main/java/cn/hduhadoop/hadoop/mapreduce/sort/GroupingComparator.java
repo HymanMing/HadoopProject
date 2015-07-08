@@ -2,7 +2,11 @@ package cn.hduhadoop.hadoop.mapreduce.sort;
 
 import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.io.WritableComparator;
-
+/**
+ * 自定义分组比较器
+ * @author GUI
+ *
+ */
 public class GroupingComparator implements RawComparator<IntPairWritable> {
 
 	public int compare(IntPairWritable o1, IntPairWritable o2) {

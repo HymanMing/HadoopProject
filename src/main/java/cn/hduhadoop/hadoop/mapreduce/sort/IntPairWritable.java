@@ -7,6 +7,11 @@ import java.io.IOException;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
+/**
+ * 自定义数据类型包含原始value
+ * @author GUI
+ *
+ */
 public class IntPairWritable implements WritableComparable<IntPairWritable> {
 	private int first;
 	private int second;
