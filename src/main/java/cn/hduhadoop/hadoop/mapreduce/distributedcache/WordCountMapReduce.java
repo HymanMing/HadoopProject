@@ -1,16 +1,25 @@
-package cn.hduhadoop.hadoop.mapreduce;
+package cn.hduhadoop.hadoop.mapreduce.distributedcache;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.filecache.DistributedCache;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
@@ -27,10 +36,35 @@ public class WordCountMapReduce extends Configured implements Tool {
 		private Text mapOutPutKey = new Text();
 		private final static LongWritable mapOutPutValue = new LongWritable(1L);
 		
+		List<String> list = new ArrayList<String>();
+		
 		@Override
 		public void setup(Context context) throws IOException,
 				InterruptedException {
-			super.setup(context);
+			Configuration conf = context.getConfiguration();
+			
+			// get cache file uri
+			@SuppressWarnings("deprecation")
+			URI[] uris = DistributedCache.getCacheFiles(conf);
+			
+			Path path = new Path(uris[0]);
+			
+			// get FileSystem
+			FileSystem fs = path.getFileSystem(conf);
+			
+			FSDataInputStream inStream = fs.open(path);
+			
+			InputStreamReader isr = new InputStreamReader(inStream);
+			
+			BufferedReader bf = new BufferedReader(isr);
+			
+			String line;
+			// get cache file and then save in list
+			while ((line = bf.readLine()) != null) {
+				if (line.trim().length() > 0) {
+					list.add(line);
+				}
+			}
 		}
 
 		@Override
@@ -41,6 +75,12 @@ public class WordCountMapReduce extends Configured implements Tool {
 			StringTokenizer tokenizer = new StringTokenizer(lineValue);
 			while (tokenizer.hasMoreTokens()) {
 				String wordValue = tokenizer.nextToken();
+				
+				// compare whether wordvalue in cache file
+				if (list.contains(wordValue)) {
+					continue;
+				}
+				
 				mapOutPutKey.set(wordValue);
 				context.write(mapOutPutKey, mapOutPutValue);
 			}
@@ -91,6 +131,11 @@ public class WordCountMapReduce extends Configured implements Tool {
 		// set conf
 		Configuration conf = super.getConf();
 		
+		URI uri = new URI("/user/hyman/mr/cache/word.data");
+		
+		// add calche file
+		DistributedCache.addCacheFile(uri, conf);
+		
 		// create job 
 		Job job = Job.getInstance(conf, this.getClass().getSimpleName());
 		
@@ -130,8 +175,8 @@ public class WordCountMapReduce extends Configured implements Tool {
 
 	public static void main(String[] args) throws Exception {
 		args = new String[]{
-			"hdfs://10.1.16.251:8020/user/hyman/mr/wc/input",
-			"hdfs://10.1.16.251:8020/user/hyman/mr/wc/output"
+			"hdfs://10.1.16.251:8020/user/hyman/mr/cache/input",
+			"hdfs://10.1.16.251:8020/user/hyman/mr/cache/output"
 		};
 		
 		// run job
