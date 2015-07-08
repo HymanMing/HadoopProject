@@ -20,6 +20,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.filecache.DistributedCache;
+import org.apache.hadoop.mapreduce.lib.chain.ChainMapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
@@ -52,6 +53,7 @@ public class WordCountMapReduce extends Configured implements Tool {
 			// get FileSystem
 			FileSystem fs = path.getFileSystem(conf);
 			
+			// get inputstream
 			FSDataInputStream inStream = fs.open(path);
 			
 			InputStreamReader isr = new InputStreamReader(inStream);
@@ -185,5 +187,4 @@ public class WordCountMapReduce extends Configured implements Tool {
 		// exit program
 		System.exit(status);
 	}
-
 }
