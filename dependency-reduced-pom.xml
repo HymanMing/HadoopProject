@@ -76,8 +76,8 @@
     </dependency>
   </dependencies>
   <properties>
-    <mapreduce.job.class>cn.hduhadoop.hadoop.mapreduce.sort.SecondarySortMapReduce</mapreduce.job.class>
-    <jar.name>mapreduce-secondarysort</jar.name>
+    <mapreduce.job.class>cn.hduhadoop.hadoop.mapreduce.join.DataJionMapReduce</mapreduce.job.class>
+    <jar.name>mapreduce-datajoin</jar.name>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
