@@ -23,6 +23,12 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * MultipleOutputs多输出实现的按单词首字母分类输出的程序
+ * 分为小写[a-z]、大写[A-Z]、数字[0-9]、其他others四种输出文件
+ * @author GUI
+ *
+ */
 public class MultipleOutPutMapReduce extends Configured implements Tool {
 
 	// Mapper class

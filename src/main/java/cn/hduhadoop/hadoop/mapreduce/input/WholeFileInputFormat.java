@@ -11,6 +11,13 @@ import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
+/**
+ * 自定义InputFormat
+ * 每个小文件作为一条记录读取
+ * 文件不进行分割
+ * @author GUI
+ *
+ */
 public class WholeFileInputFormat extends FileInputFormat<NullWritable, BytesWritable> {
 
 	@Override

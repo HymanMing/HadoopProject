@@ -17,7 +17,11 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
+/**
+ * 采用模板编写关于移动基站数据统计的程序，自定义DataWritable为基站数据信息对应的数据类型
+ * @author GUI
+ *
+ */
 public class DataTotalMapReduce extends Configured implements Tool {
 
 	// Mapper class

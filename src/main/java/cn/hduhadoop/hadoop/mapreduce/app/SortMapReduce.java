@@ -18,7 +18,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
+/**
+ * 采用模板编写的关于数据排序的程序。
+ * 程序中给了每个单词的次序
+ * @author GUI
+ *
+ */
 public class SortMapReduce extends Configured implements Tool {
 
 	// Mapper class

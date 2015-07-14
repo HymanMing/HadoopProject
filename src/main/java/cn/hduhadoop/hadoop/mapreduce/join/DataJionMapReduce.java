@@ -21,6 +21,12 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * MapReduce应用，reduce端jion
+ * Hadoop in Actioni上的例子：实现用户信息与订单信息的链接
+ * @author GUI
+ *
+ */
 public class DataJionMapReduce extends Configured implements Tool {
 
 	// Mapper class

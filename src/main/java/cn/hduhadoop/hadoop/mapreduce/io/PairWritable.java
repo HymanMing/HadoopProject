@@ -7,6 +7,14 @@ import java.io.IOException;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
+/**
+ * 自定义数据类型
+ * 权威指南上的例子
+ * 包含两个字段：int 类型的id，String类型的name
+ * 注意最后的内部Comparator比较器要进行注册
+ * @author GUI
+ *
+ */
 public class PairWritable implements WritableComparable<PairWritable> {
 	private int id;
 	private String name;

@@ -17,7 +17,11 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
+/**
+ * MapReduce模板，实现了Tool接口，调用对应的run方法运行job
+ * @author GUI
+ *
+ */
 public class ModuleMapReduce extends Configured implements Tool {
 
 	// Mapper class

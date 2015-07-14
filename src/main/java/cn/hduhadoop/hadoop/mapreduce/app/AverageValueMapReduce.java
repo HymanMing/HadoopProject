@@ -22,6 +22,12 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 采用模板实现的求数据的平均数的程序
+ * 求平均数不能用Combiner进行优化
+ * @author GUI
+ *
+ */
 public class AverageValueMapReduce extends Configured implements Tool {
 
 	// Mapper class

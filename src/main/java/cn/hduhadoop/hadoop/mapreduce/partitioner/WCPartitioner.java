@@ -4,6 +4,12 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 
+/**
+ * 自定义分区
+ * 通过匹配key的首字母来实现分区
+ * @author GUI
+ *
+ */
 public class WCPartitioner extends Partitioner<Text, LongWritable> {
 
 	@Override

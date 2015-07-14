@@ -18,6 +18,11 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 合并小文件为大文件
+ * @author GUI
+ *
+ */
 public class WholeMapReduce extends Configured implements Tool {
 
 	// Mapper class

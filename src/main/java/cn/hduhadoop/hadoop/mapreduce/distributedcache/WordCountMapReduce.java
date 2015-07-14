@@ -29,6 +29,12 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 根据模板编写的分布式缓存应用：过滤敏感词汇的程序
+ * 缓存中存储敏感词汇（小文件），map读取文件与缓存中的文件对比，存在缓存中则过滤
+ * @author GUI
+ *
+ */
 public class WordCountMapReduce extends Configured implements Tool {
 
 	// Mapper class

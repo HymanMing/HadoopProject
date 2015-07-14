@@ -19,6 +19,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 根据模板编写的求多个文件中数据的topk值。
+ * 先用map处理单个文件，获取单个文件的topk值，再借助reduce求出所有map结果中的最终topk值
+ * @author GUI
+ *
+ */
 public class TopKMapReduceV3 extends Configured implements Tool {
 	private static final int KEY = 2;
 

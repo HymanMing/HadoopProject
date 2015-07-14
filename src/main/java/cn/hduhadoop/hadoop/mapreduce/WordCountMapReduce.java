@@ -19,6 +19,11 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 采用模板改写的WordCount程序
+ * @author GUI
+ *
+ */
 public class WordCountMapReduce extends Configured implements Tool {
 
 	// Mapper class

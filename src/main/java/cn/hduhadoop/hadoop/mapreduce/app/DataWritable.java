@@ -6,6 +6,11 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.Writable;
 
+/**
+ * 基站数据信息包装类型，在程序中作为value使用
+ * @author GUI
+ *
+ */
 public class DataWritable implements Writable {
 	
 	private long upPackNum;	// 上行数据包数

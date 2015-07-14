@@ -20,6 +20,12 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * MapReduce程序应用中二次排序的实现。
+ * 先按第一个数字排序，第一个数字相同按第二个数据排序
+ * @author GUI
+ *
+ */
 public class SecondarySortMapReduce extends Configured implements Tool {
 
 	// Mapper class

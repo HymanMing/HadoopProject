@@ -19,6 +19,11 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 根据模板编写的求一个文件中数据的最值 直接用map实现 不需要reduce
+ * @author GUI
+ *
+ */
 public class TopKMapReduce extends Configured implements Tool {
 
 	// Mapper class

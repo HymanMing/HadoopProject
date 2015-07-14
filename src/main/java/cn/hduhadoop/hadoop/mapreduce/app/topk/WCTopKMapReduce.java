@@ -21,6 +21,13 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 根据模板编写的关于topk真实应用，求一组文件中出现次数最多的几个单词的程序
+ * 先统计词频
+ * 然后求topk值
+ * @author GUI
+ *
+ */
 public class WCTopKMapReduce extends Configured implements Tool {
 
 	// Mapper class

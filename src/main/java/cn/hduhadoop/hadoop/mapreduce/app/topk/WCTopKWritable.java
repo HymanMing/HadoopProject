@@ -6,6 +6,12 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.WritableComparable;
 
+/**
+ * 自定义数据类型WCTopKWritable。
+ * 作为Reduce输出Key的数据类型，包含两个字段，分别为单词和单词出现的次数
+ * @author GUI
+ *
+ */
 public class WCTopKWritable implements WritableComparable<WCTopKWritable> {
 	private String word;
 	private long count;

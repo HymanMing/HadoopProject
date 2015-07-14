@@ -6,6 +6,14 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.Writable;
 
+/**
+ * 自定义数据类型
+ * 包含两个字段
+ * Tag：表示表中信息的类型属于用户还是订单
+ * data:表中的数据
+ * @author GUI
+ *
+ */
 public class DataWritable implements Writable {
 	private String Tag;
 	private String data;

@@ -19,6 +19,11 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * Partitioner分区实现的单词按首字符分区输出的程序
+ * @author GUI
+ *
+ */
 public class WordCountMapReduce extends Configured implements Tool {
 
 	// Mapper class

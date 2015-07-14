@@ -14,6 +14,12 @@ import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
+/**
+ * 自定义RecordReader
+ * 读取文件
+ * @author GUI
+ *
+ */
 public class WholeRecordReader extends
 		RecordReader<NullWritable, BytesWritable> {
 	private FileSplit fileSplit;

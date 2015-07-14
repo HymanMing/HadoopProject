@@ -19,6 +19,13 @@ import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * 采用模板编写的数据去重的程序。
+ * 直接用MapReduce实现的过程就能解决问题，这里不对一行的值进行分割，
+ * 直接当做key，根据key的特性实现去重。
+ * @author GUI
+ *
+ */
 public class DedupMapReduce extends Configured implements Tool {
 
 	// Mapper class
@@ -117,7 +124,7 @@ public class DedupMapReduce extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 		args = new String[]{
 			"hdfs://10.1.16.251:8020/user/hyman/mr/dedup/input",
-			"hdfs://10.1.16.251:8020/user/hyman/mr/dedup/output"
+			"hdfs://10.1.16.251:8020/user/hyman/mr/dedup/output1"
 		};
 		
 		// run job

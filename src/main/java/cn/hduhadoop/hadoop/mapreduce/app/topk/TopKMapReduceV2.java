@@ -19,7 +19,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
+/**
+ * 根据模板编写的求一个文件中一组数据中最大的3个数。
+ * TreeSet实现，如果TreeSet中的数据个数大于3，移除first
+ * @author GUI
+ *
+ */
 public class TopKMapReduceV2 extends Configured implements Tool {
 
 	// Mapper class
